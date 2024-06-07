@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import {jwtDecode} from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
@@ -110,9 +111,9 @@ const Dashboard = () => {
         await handleUpdateTask(taskId, tasks.find(task => task._id === taskId).name, newStatus);
     };
 
-    const handleUpdateButtonClick = async (taskId, newName) => {
-        await handleUpdateTask(taskId, newName);
-    };
+    // const handleUpdateButtonClick = async (taskId, newName) => {
+    //     await handleUpdateTask(taskId, newName);
+    // };
 
     return (
         <div>
