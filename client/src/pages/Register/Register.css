@@ -1,0 +1,54 @@
+#form_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    
+}
+#form_content_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+#content_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 2rem;
+    border-radius: 10px;
+    height: 30vh;
+    width: 20vw;
+}
+#register_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#email_input{
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+#password_input{
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+#name_input{
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 7px;
+}
