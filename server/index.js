@@ -11,7 +11,7 @@ const bcrypt = require('bcryptjs');
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://parakhdas45:parakhdas45@cluster0.3zbpy7a.mongodb.net/database?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://pragyan:pragyan4261@cluster0.3zbpy7a.mongodb.net/database?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('strictQuery', true);
 
 app.post('/api/register', async (req, res) => {
