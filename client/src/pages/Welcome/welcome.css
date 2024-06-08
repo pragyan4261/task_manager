@@ -48,3 +48,8 @@
 #register-btn:hover{
     border-radius: 30px;
 }
+@media only screen and (max-width: 400px) {
+    #heading{
+        font-size: 1.5rem;
+    }
+}
