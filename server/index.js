@@ -11,7 +11,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(PROCESS.ENV.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('strictQuery', true);
 
 app.post('/api/register', async (req, res) => {
@@ -47,7 +47,7 @@ app.post('/api/login', async (req, res) => {
                 email: user.email,
                 _id: user._id
             },
-            PROCESS.ENV.JWT_SECRET
+            process.env.JWT_SECRET
         );
 
         return res.json({ status: 'ok', user: token });
@@ -63,7 +63,7 @@ app.post('/api/login', async (req, res) => {
 app.post('/api/tasks', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded._id;
 
         const { name } = req.body;
@@ -80,7 +80,7 @@ app.post('/api/tasks', async (req, res) => {
 app.put('/api/tasks/:id', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded._id;
 
         const { id } = req.params;
@@ -103,7 +103,7 @@ app.put('/api/tasks/:id', async (req, res) => {
 app.delete('/api/tasks/:id', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded._id;
 
         const { id } = req.params;
@@ -121,7 +121,7 @@ app.delete('/api/tasks/:id', async (req, res) => {
 app.get('/api/tasks', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded._id;
 
         let query = { user: userId };
@@ -146,6 +146,6 @@ app.get('/api/tasks', async (req, res) => {
     }
 });
 
-app.listen(5000, () => {
-    console.log('Server started on port 5000');
+app.listen(1337, () => {
+    console.log('Server started on port 1337');
 });
