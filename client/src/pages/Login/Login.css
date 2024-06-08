@@ -4,6 +4,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1717829195/6173960_ujfh9u.jpg') no-repeat center center/cover;
     
 }
 #form_content_main{
@@ -28,21 +29,26 @@
     padding: 0.5rem;
     width: 8rem;
     font-size: 1rem;
-    background-color: blue;
+    border: 2px solid white;
+    background-color: transparent;
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+#login_btn_form:hover{
+    border-radius: 30px;
 }
 #email_input{
     width: 80%;
     padding: 0.5rem;
     border: 2px solid black;
     border-radius: 7px;
+    color: white;
 }
 #password_input{
     width: 80%;
     padding: 0.5rem;
     border: 2px solid black;
     border-radius: 7px;
+    color: white;
 }

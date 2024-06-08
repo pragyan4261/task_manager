@@ -4,6 +4,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
+    color: white;
     
 }
 #form_content_main{
@@ -18,37 +19,47 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 2rem;
     border-radius: 10px;
     height: 30vh;
     width: 20vw;
+    backdrop-filter: blur(10px);
 }
 #register_btn_form{
     padding: 0.5rem;
     width: 8rem;
     font-size: 1rem;
-    background-color: blue;
+    border: 2px solid white;
+    background-color: transparent;
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+#register_btn_form:hover{
+    border-radius: 30px;
 }
 #email_input{
     width: 80%;
     padding: 0.5rem;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 7px;
+    background: transparent;
+    color: white;
 }
 #password_input{
     width: 80%;
     padding: 0.5rem;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 7px;
+    background: transparent;
+    color: white;
 }
 #name_input{
     width: 80%;
     padding: 0.5rem;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 7px;
+    background: transparent;
+    color: white;
 }
