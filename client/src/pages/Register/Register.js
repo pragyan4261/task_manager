@@ -13,7 +13,7 @@ function App() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:1337/api/register', {
+            const response = await fetch('https://task-manager-bphy.onrender.com/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

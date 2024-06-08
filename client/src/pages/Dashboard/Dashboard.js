@@ -28,7 +28,7 @@ const Dashboard = () => {
                 return;
             }
 
-            const url = `http://localhost:1337/api/tasks?search=${searchTerm}&status=${statusFilter}`;
+            const url = `https://task-manager-bphy.onrender.com/api/tasks?search=${searchTerm}&status=${statusFilter}`;
             const response = await fetch(url, {
                 headers: {
                     'x-access-token': token,
@@ -49,7 +49,7 @@ const Dashboard = () => {
     const handleUpdateTask = async (taskId, newName, newStatus) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:1337/api/tasks/${taskId}`, {
+            const response = await fetch(`https://task-manager-bphy.onrender.com/api/tasks/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const Dashboard = () => {
     const handleDeleteTask = async (taskId) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:1337/api/tasks/${taskId}`, {
+            const response = await fetch(`https://task-manager-bphy.onrender.com/api/tasks/${taskId}`, {
                 method: 'DELETE',
                 headers: {
                     'x-access-token': token,
