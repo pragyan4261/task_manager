@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -7,11 +6,12 @@ const User = require('./models/user.model');
 const Task = require('./models/task.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://pragyan:pragyan4261@cluster0.3zbpy7a.mongodb.net/database?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(PROCESS.ENV.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('strictQuery', true);
 
 app.post('/api/register', async (req, res) => {
@@ -47,7 +47,7 @@ app.post('/api/login', async (req, res) => {
                 email: user.email,
                 _id: user._id
             },
-            'secret123'
+            PROCESS.ENV.JWT_SECRET
         );
 
         return res.json({ status: 'ok', user: token });
@@ -56,45 +56,14 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// app.get('/api/quote', async (req, res) => {
-//     const token = req.headers['x-access-token'];
-
-//     try {
-//         const decoded = jwt.verify(token, 'secret123');
-//         const email = decoded.email;
-//         const user = await User.findOne({ email: email });
-
-//         return res.json({ status: 'ok', quote: user.quote });
-//     } catch (error) {
-//         console.log(error);
-//         res.json({ status: 'error', error: 'invalid token' });
-//     }
-// });
-
-// app.post('/api/quote', async (req, res) => {
-//     const token = req.headers['x-access-token'];
-
-//     try {
-//         const decoded = jwt.verify(token, 'secret123');
-//         const email = decoded.email;
-//         await User.updateOne(
-//             { email: email },
-//             { $set: { quote: req.body.quote } }
-//         );
-
-//         return res.json({ status: 'ok' });
-//     } catch (error) {
-//         console.log(error);
-//         res.json({ status: 'error', error: 'invalid token' });
-//     }
-// });
 
 // Task endpoints
+
 //Create Task
 app.post('/api/tasks', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, 'secret123');
+        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
         const userId = decoded._id;
 
         const { name } = req.body;
@@ -111,7 +80,7 @@ app.post('/api/tasks', async (req, res) => {
 app.put('/api/tasks/:id', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, 'secret123');
+        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
         const userId = decoded._id;
 
         const { id } = req.params;
@@ -134,7 +103,7 @@ app.put('/api/tasks/:id', async (req, res) => {
 app.delete('/api/tasks/:id', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, 'secret123');
+        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
         const userId = decoded._id;
 
         const { id } = req.params;
@@ -152,7 +121,7 @@ app.delete('/api/tasks/:id', async (req, res) => {
 app.get('/api/tasks', async (req, res) => {
     try {
         const token = req.headers['x-access-token'];
-        const decoded = jwt.verify(token, 'secret123');
+        const decoded = jwt.verify(token, PROCESS.ENV.JWT_SECRET);
         const userId = decoded._id;
 
         let query = { user: userId };
@@ -177,6 +146,6 @@ app.get('/api/tasks', async (req, res) => {
     }
 });
 
-app.listen(1337, () => {
-    console.log('Server started on port 1337');
+app.listen(5000, () => {
+    console.log('Server started on port 5000');
 });
