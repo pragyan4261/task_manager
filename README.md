@@ -15,8 +15,7 @@ Installation
 
 Clone the Repository
 1. Open your terminal or command prompt.
-2. Clone the repository from GitHub: git clone https://github.com/your-username/your-repository.git
-
+2. Clone the repository from GitHub
 
 Setup the frontend server
 
