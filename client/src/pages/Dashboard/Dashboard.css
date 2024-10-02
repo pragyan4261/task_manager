@@ -1,0 +1,213 @@
+#_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1717829195/6173960_ujfh9u.jpg') no-repeat center center/cover;
+    color: white;
+    
+}
+#card{
+    /* border: 2px solid white; */
+    width: 50%;
+    padding: 1rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    margin-bottom: 0.5rem;
+    margin-top: 4rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+#task_input{
+    width: 50%;
+    padding: 0.5rem;
+    border: 2px solid white;
+    border-radius: 7px;
+    background: transparent;
+}
+#search_input{
+    width: 70%;
+    padding: 0.5rem;
+    border: 2px solid white;
+    border-radius: 7px;
+    background: transparent;
+    color: white;
+}
+#create_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 1rem;
+}
+#search_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+#search_form_container{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+#create_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#create_btn_form:hover{
+    border-radius: 30px;
+}
+#search_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#search_btn_form:hover{
+    border-radius: 30px;
+}
+#edit_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#edit_btn_form:hover{
+    border-radius: 30px;
+}
+#save_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#save_btn_form:hover{
+    border-radius: 30px;
+}
+#delete_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#delete_btn_form:hover{
+    border-radius: 30px;
+}
+
+.card_input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: white;
+}
+.btn_container{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+#list{
+    list-style: none;
+    border: 2px solid white;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+    padding: 1rem;
+    
+}
+.task{
+    font-size: 1.3rem;
+}
+
+#task_input{
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid white;
+    border-radius: 7px;
+    background: transparent;
+    color: white;
+}
+.checkbox{
+    font-size: 1rem;
+}
+#checkbox_container{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#dropdown{
+    background-color: transparent;
+    color: white;
+    width: 6rem;
+    border: 2px solid white;
+    border-radius: 7px;
+    height: 2.2rem;
+    padding: 0.5rem;
+}
+#dropdown option{
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (max-width: 870px) {
+    #card{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    #checkbox_container{
+        width: 50%;
+    }
+    #create_form{
+        width: 70%;
+    }
+    #search_form_container{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 560px) {
+    #card{
+        width: 90%;
+    }
+    #checkbox_container{
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .card_input{
+        width: 90%;
+    }
+    
+}

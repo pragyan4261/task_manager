@@ -1,0 +1,62 @@
+#form_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1717829195/6173960_ujfh9u.jpg') no-repeat center center/cover;
+    
+}
+#form_content_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+}
+#content_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 2rem;
+    border-radius: 10px;
+    height: 30vh;
+    width: 50%;
+    
+}
+#login_btn_form{
+    padding: 0.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#login_btn_form:hover{
+    border-radius: 30px;
+}
+#email_input{
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 7px;
+    color: white;
+}
+#password_input{
+    width: 80%;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 7px;
+    color: white;
+}
+
+@media only screen and (max-width: 400px) {
+    #content_form{
+        width: 80%;
+    }
+}
