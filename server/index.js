@@ -14,6 +14,22 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI);
 mongoose.set('strictQuery', true);
 
+const url = `https://task-manager-new-aol9.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
+
 app.post('/api/register', async (req, res) => {
     console.log(req.body);
     try {
