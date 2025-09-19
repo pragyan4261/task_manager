@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import {jwtDecode} from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
+import config from '../../config';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Dashboard = () => {
                 return;
             }
 
-            const url = `https://task-manager-new-aol9.onrender.com/api/tasks?search=${searchTerm}&status=${statusFilter}`;
+            const url = `${config.getApiUrl(config.endpoints.TASKS)}?search=${searchTerm}&status=${statusFilter}`;
             const response = await fetch(url, {
                 headers: {
                     'x-access-token': token,
@@ -52,7 +53,7 @@ const Dashboard = () => {
     const handleCreateTask = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('https://task-manager-new-aol9.onrender.com/api/tasks', {
+            const response = await fetch(config.getApiUrl(config.endpoints.TASKS), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,7 +80,7 @@ const Dashboard = () => {
     const handleUpdateTask = async (taskId, newName, newStatus) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`https://task-manager-new-aol9.onrender.com/api/tasks/${taskId}`, {
+            const response = await fetch(`${config.getApiUrl(config.endpoints.TASKS)}/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +106,7 @@ const Dashboard = () => {
     const handleDeleteTask = async (taskId) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`https://task-manager-new-aol9.onrender.com/api/tasks/${taskId}`, {
+            const response = await fetch(`${config.getApiUrl(config.endpoints.TASKS)}/${taskId}`, {
                 method: 'DELETE',
                 headers: {
                     'x-access-token': token,

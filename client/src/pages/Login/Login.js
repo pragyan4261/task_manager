@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Login.css';
+import config from '../../config';
 
 function App() {
 	const [email, setEmail] = useState('')
@@ -8,7 +9,7 @@ function App() {
 	async function loginUser(event) {
 		event.preventDefault()
 
-		const response = await fetch('https://task-manager-new-aol9.onrender.com/api/login', {
+		const response = await fetch(config.getApiUrl(config.endpoints.LOGIN), {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

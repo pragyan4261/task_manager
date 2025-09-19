@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css'
+import config from '../../config';
 
 function App() {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ function App() {
         event.preventDefault();
 
         try {
-            const response = await fetch('https://task-manager-new-aol9.onrender.com/api/register', {
+            const response = await fetch(config.getApiUrl(config.endpoints.REGISTER), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
