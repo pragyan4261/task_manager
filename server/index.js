@@ -12,24 +12,37 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
+// Health check endpoint for self-ping
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', message: 'Server is running', timestamp: new Date().toISOString() });
+});
+
 mongoose.connect(process.env.MONGO_URI);
 mongoose.set('strictQuery', true);
 
-const url = `https://task-manager-new-aol9.onrender.com`;
-const interval = 30000;
+// Self-ping to prevent Render.com free tier from sleeping
+const selfPingUrl = `https://task-manager-new-aol9.onrender.com`;
+const interval = 30000; // 30 seconds
 
-function reloadWebsite() {
-  axios
-    .get(url)
-    .then((response) => {
-      console.log("website reloded");
-    })
-    .catch((error) => {
-      console.error(`Error : ${error.message}`);
-    });
+function keepServerAwake() {
+  // Only ping if we're in production (Render.com)
+  if (process.env.NODE_ENV === 'production') {
+    axios
+      .get(`${selfPingUrl}/api/health`)
+      .then((response) => {
+        console.log(`Server kept awake: ${response.status} at ${new Date().toISOString()}`);
+      })
+      .catch((error) => {
+        console.error(`Keep-alive ping failed: ${error.message}`);
+      });
+  }
 }
 
-setInterval(reloadWebsite, interval);
+// Start keep-alive ping in production
+if (process.env.NODE_ENV === 'production') {
+  setInterval(keepServerAwake, interval);
+  console.log(`Keep-alive ping started for: ${selfPingUrl}`);
+}
 
 app.post('/api/register', async (req, res) => {
     console.log(req.body);
@@ -163,6 +176,8 @@ app.get('/api/tasks', async (req, res) => {
     }
 });
 
-app.listen(1337, () => {
-    console.log('Server started on port 1337');
+const PORT = process.env.PORT || 1337;
+
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
