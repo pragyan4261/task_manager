@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI);
 mongoose.set('strictQuery', true);
 
 // Self-ping to prevent Render.com free tier from sleeping
-const selfPingUrl = `https://task-manager-new-aol9.onrender.com`;
+const selfPingUrl = `https://task-manager-jz8a.onrender.com`;
 const interval = 30000; // 30 seconds
 
 function keepServerAwake() {
